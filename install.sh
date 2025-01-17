@@ -182,6 +182,7 @@ config_after_install() {
             echo -e "${green}URL: http://${server_ip}:${config_port}/${config_webBasePath}${plain}"
             echo -e "###############################################"
             echo -e "${yellow}Если вы забыли данные для входа, выполните 'x-ui settings' для проверки после установки${plain}"
+		fi
         else
             local config_webBasePath=$(gen_random_string 15)
             echo -e "${yellow}Путь диспетчерской слишком короткий. Генерация...${plain}"
