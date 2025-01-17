@@ -161,16 +161,15 @@ config_after_install() {
 
     if [[ ${#existing_webBasePath} -lt 4 ]]; then
         if [[ "$existing_username" == "admin" && "$existing_password" == "admin" ]]; then
-            echo -e "${yellow}Установка завершена! В целях безопасности данные будут сгенерированы автоматически.${plain}"
-
-            local config_username=$(gen_random_string 10)
-            echo -e "${yellow}Имя пользователя: ${config_username}${plain}"
-            local config_password=$(gen_random_string 10)
-            echo -e "${yellow}Пароль: ${config_password}${plain}"
-            local config_port=$(shuf -i 1024-62000 -n 1)
-            echo -e "${yellow}Порт диспетчерской: ${config_port}${plain}"
-            local config_webBasePath=$(gen_random_string 15)
-            echo -e "${yellow}Путь диспетчерской: ${config_webBasePath}${plain}"
+            echo -e "${yellow}Установка завершена! В целях безопасности рекомендую изменить настройки панели ${plain}"
+              local config_username=$(gen_random_string 10)
+              echo -e "${yellow}Имя пользователя: ${config_username}${plain}"
+              local config_password=$(gen_random_string 10)
+              echo -e "${yellow}Пароль: ${config_password}${plain}"
+              local config_port=$(shuf -i 1024-62000 -n 1)
+              echo -e "${yellow}Порт диспетчерской: ${config_port}${plain}"
+              local config_webBasePath=$(gen_random_string 15)
+              echo -e "${yellow}Путь диспетчерской: ${config_webBasePath}${plain}"
 
             /usr/local/x-ui/x-ui setting -username "${config_username}" -password "${config_password}" -port "${config_port}" -webBasePath "${config_webBasePath}"
             echo -e "Это свежая установка, генерируем случайные данные в целях безопасности:"
@@ -182,7 +181,6 @@ config_after_install() {
             echo -e "${green}URL: http://${server_ip}:${config_port}/${config_webBasePath}${plain}"
             echo -e "###############################################"
             echo -e "${yellow}Если вы забыли данные для входа, выполните 'x-ui settings' для проверки после установки${plain}"
-		fi
         else
             local config_webBasePath=$(gen_random_string 15)
             echo -e "${yellow}Путь диспетчерской слишком короткий. Генерация...${plain}"
@@ -203,7 +201,6 @@ config_after_install() {
             echo -e "${green}Пароль: ${config_password}${plain}"
             echo -e "###############################################"
             echo -e "${yellow}Если вы забыли данные для входа, выполните 'x-ui settings' для проверки после установки${plain}"
-		fi
         else
             echo -e "${green}Имя пользователя, пароль и путь уже заданы. Завершение обновления...${plain}"
         fi
