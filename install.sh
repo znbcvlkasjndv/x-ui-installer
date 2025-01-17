@@ -203,6 +203,7 @@ config_after_install() {
             echo -e "${green}Пароль: ${config_password}${plain}"
             echo -e "###############################################"
             echo -e "${yellow}Если вы забыли данные для входа, выполните 'x-ui settings' для проверки после установки${plain}"
+		fi
         else
             echo -e "${green}Имя пользователя, пароль и путь уже заданы. Завершение обновления...${plain}"
         fi
