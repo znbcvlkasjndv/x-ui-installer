@@ -171,7 +171,6 @@ config_after_install() {
             echo -e "${yellow}Порт диспетчерской: ${config_port}${plain}"
             local config_webBasePath=$(gen_random_string 15)
             echo -e "${yellow}Путь диспетчерской: ${config_webBasePath}${plain}"
-            fi
 
             /usr/local/x-ui/x-ui setting -username "${config_username}" -password "${config_password}" -port "${config_port}" -webBasePath "${config_webBasePath}"
             echo -e "Это свежая установка, генерируем случайные данные в целях безопасности:"
